@@ -9,13 +9,24 @@ exports.mahasiswa = (req, res) => {
         data : user
     });
 }
+
+
+exports.mahasiswabyid = (req, res) => {
+    const result = user.filter(user => user.id === parseInt(req.body.id));
+
+    console.log(result);
+        res.json({
+            status : true,
+            data : result
+        });
+}
  
 // insert data ke file user.json
 exports.mahasiswaInsert = (req, res) => {
     var read = req.body;
     data = user
     data.push({
-        id : parseInt(read.id),
+        id : user.length,
         nama : read.nama,
         kelas : read.kelas,
     })
@@ -27,6 +38,8 @@ exports.mahasiswaInsert = (req, res) => {
         });
     });
 }
+
+
 
 // update data ke users.json
 exports.mahasiswaUpdate = (req, res) => {
