@@ -1,4 +1,5 @@
 var express = require('express')
+var express = require('./data.json')
 var app = express()
 const fs = require('fs');
 const path = require('path');
@@ -12,6 +13,6 @@ fs.mkdir(path.join(__dirname, 'test'), (err) => {
 
 
 // respond with "hello world" when a GET request is made to the homepage
-app.get('/', function (req, res) {
-    res.send('hello world')
+app.get('/data-ceritanya', function (req, res) {
+    res.json(data)
 })

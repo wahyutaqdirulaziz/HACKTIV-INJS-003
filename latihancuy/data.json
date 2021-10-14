@@ -1,0 +1,17 @@
+[
+    {
+        "provinci_id" : 1,
+        "nama_provinci" : "lombok"
+        
+    },
+    {
+        "provinci_id" : 2,
+        "nama_provinci" : "panci"
+        
+    },
+    {
+        "provinci_id" : 3,
+        "nama_provinci" : "ntt"
+        
+    }
+]
