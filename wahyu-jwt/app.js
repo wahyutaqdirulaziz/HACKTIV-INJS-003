@@ -78,19 +78,7 @@ route.post('/registrasi', (req, res) => {
     })
   })
 
-  app.post('/users', (req, res) => {
-    console.log(req.body)
-    let obj = {
-      email: req.body.email,
-      nama : req.body.nama,
-      password: req.body.password,
-    }
-    data.push(obj)
-    fs.writeFileSync('./data.json', JSON.stringify(data, null, 2), 'utf-8')
-    res.status(200).send({
-        message : "Registered success !"
-    });
-  })
+
 
 // Listen
 app.listen(port,() => {
