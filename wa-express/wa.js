@@ -34,7 +34,7 @@ app.post('/send-whatsapp', async(req, res) => {
     const number_details = await client.getNumberId(chatId); // get mobile number details
 
     if (number_details) {
-        await client.sendMessage(chatId, text);
+        client.sendMessage(chatId, text);
      res.json({
          status : "pesan sukses terkirim",
          nomor_tujuan : number,
