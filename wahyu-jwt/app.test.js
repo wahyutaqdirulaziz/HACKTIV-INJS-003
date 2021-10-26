@@ -6,8 +6,6 @@ data = {
     password: "wahyu12345"
 }
 
-
-
 datawrong = {
     email: "wahyu@gmail.com",
     password: "wahyu12346"
@@ -23,9 +21,7 @@ describe("GET/", () => {
                 done();
             });
     });
-});
 
-describe('GET /', () => {
     test('401', () => {
         return request(app)
             .get('/Home')
@@ -34,6 +30,8 @@ describe('GET /', () => {
             });
     });
 });
+
+
 
 
 describe("POST /login", () => {
