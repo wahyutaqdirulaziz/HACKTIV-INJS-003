@@ -14,7 +14,7 @@ client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
 });
 
-client.on('ready', async () => {
+client.on('ready', async() => {
     console.log('Client is ready!');
 
 });
@@ -28,24 +28,24 @@ client.on('message', msg => {
 app.post('/send-whatsapp', async(req, res) => {
     const number = req.body.no;
     const text = req.body.msg;
-    const sanitized_number = number.toString().replace(/[- )(]/g, "",'0'); // remove unnecessary chars from the number
+    const sanitized_number = number.toString().replace(/[- )(]/g, "", '0'); // remove unnecessary chars from the number
     const final_number = `+62${sanitized_number.substring(sanitized_number.length - 11)}`; // add 91 before the number here 91 is country code of India
     const chatId = final_number.substring(1) + "@c.us";
     const number_details = await client.getNumberId(chatId); // get mobile number details
 
     if (number_details) {
         client.sendMessage(chatId, text);
-     res.json({
-         status : "pesan sukses terkirim",
-         nomor_tujuan : number,
-         pesan : text,
-     }); // send message
+        res.json({
+            status: "pesan sukses terkirim",
+            nomor_tujuan: number,
+            pesan: text,
+        }); // send message
     } else {
         console.log(final_number, "Mobile number is not registered");
     }
-    
-    
-  })
+
+
+})
 
 
 app.listen(port, () => {
